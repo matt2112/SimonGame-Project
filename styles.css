@@ -1,0 +1,35 @@
+.box {
+    height: 300px;
+    width: 300px;
+    border: 2px black solid;
+    float: left;
+}
+
+#container {
+    width: 608px;
+    margin: 50px auto;
+}
+
+#green {
+    background-color: green;
+    border-top-left-radius: 100%;
+}
+
+#red {
+    background-color: red;
+    border-top-right-radius: 100%;
+}
+
+#yellow {
+    background-color: yellow;
+    border-bottom-left-radius: 100%;
+}
+
+#blue {
+    background-color: blue;
+    border-bottom-right-radius: 100%;
+}
+
+#break {
+    clear: both;
+}
