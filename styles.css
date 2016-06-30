@@ -11,22 +11,22 @@
 }
 
 #green {
-    background-color: green;
+    background-color: #008000;
     border-top-left-radius: 100%;
 }
 
 #red {
-    background-color: red;
+    background-color: #991f00;
     border-top-right-radius: 100%;
 }
 
 #yellow {
-    background-color: yellow;
+    background-color: #cccc00;
     border-bottom-left-radius: 100%;
 }
 
 #blue {
-    background-color: blue;
+    background-color: #000066;
     border-bottom-right-radius: 100%;
 }
 
