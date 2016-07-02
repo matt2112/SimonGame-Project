@@ -1,35 +1,188 @@
-.box {
-    height: 300px;
-    width: 300px;
-    border: 2px black solid;
-    float: left;
+html {
+    background: linear-gradient(grey, white);
+    height: 100%;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    
+}
+
+p {
+    margin: 0px;
+    padding: 0px;
 }
 
 #container {
-    width: 608px;
+    width: 640px;
+    height: 640px;
     margin: 50px auto;
+    position: relative;
+    border: 40px solid #262626;
+    border-radius: 345px;
+    box-shadow: 0px 0px 4px 4px #262626;
+}
+
+.box {
+    height: 300px;
+    width: 300px;
+    float: left;
+    cursor: pointer;
 }
 
 #green {
     background-color: #008000;
-    border-top-left-radius: 100%;
+    border-top-left-radius: 300px;
+    border-right: 20px solid #262626;
+    border-bottom: 20px solid #262626;
 }
 
 #red {
     background-color: #991f00;
-    border-top-right-radius: 100%;
+    border-top-right-radius: 300px;
+    border-left: 20px solid #262626;
+    border-bottom: 20px solid #262626;
 }
 
 #yellow {
     background-color: #cccc00;
-    border-bottom-left-radius: 100%;
+    border-bottom-left-radius: 300px;
+    border-right: 20px solid #262626;
+    border-top: 20px solid #262626;
 }
 
 #blue {
     background-color: #000066;
-    border-bottom-right-radius: 100%;
+    border-bottom-right-radius: 300px;
+    border-left: 20px solid #262626;
+    border-top: 20px solid #262626;
 }
 
-#break {
-    clear: both;
+#options {
+    height: 250px;
+    width: 250px;
+    background-color: #ffe6b3;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 100;
+    top: 160px;
+    left: 160px;
+    border: 40px solid #262626;
+    text-align: center;
 }
+
+#title {
+    width: 200px;
+    margin: 15px auto -15px auto;
+    font-weight: bold;
+    font-size: 20px;
+    color: #262626;
+    position: relative;
+    top: 20px;
+    line-height: 20px;
+}
+
+#buttonRow {
+    margin: 40px auto;
+}
+
+#counter {
+    margin-left: 20px;
+    height: 60px;
+    width: 70px;
+    background-color: grey;
+    float: left;
+    border-radius: 10px;
+}
+
+#start {
+    background-color: red;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    border: 2px solid black;
+    box-shadow: 0px 1px 1px 3px #262626;
+    cursor: pointer;
+    position: relative;
+    margin: 0 auto;
+    top: 10px;
+    left: 5px;
+}
+
+#start:active {
+    top: 12px;
+    box-shadow: 0px 0px 0px 3px #262626;
+}
+
+#strict {
+    float: right;
+    background-color: yellow;
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    border: 2px solid black;
+    box-shadow: 0px 1px 1px 3px #262626;
+    cursor: pointer;
+    position: relative;
+    top: -25px;
+    margin-right: 35px;
+}
+
+#strict:active {
+    top: -23px;
+    box-shadow: 0px 0px 0px 3px #262626;
+}
+
+#buttonLabels {
+    width: 210px;
+    height: 30px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.label {
+    position: relative;
+    top: -20px;
+    width: 70px;
+    float: left;
+}
+
+#startLabel {
+    left: 3px;
+}
+
+#strictLabel {
+    left: 3px;
+}
+
+#powerDiv {
+    width: 138px;
+    height: 30px;
+    margin: 0 auto;
+    position: relative;
+    top: -20px;
+}
+
+.power {
+    width: 70px;
+    float: left;
+}
+
+#off {
+    width: 30px;
+    margin: 2px;
+    text-align: right;
+}
+
+#power {
+    height: 25px;
+    background-color: #262626;
+}
+
+#on {
+    width: 30px;
+    margin: 2px;
+    text-align: left;
+}
+

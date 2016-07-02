@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+    
     <div id="container">
         <div id="green" class="box">
             <audio id="greensound" src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" type="audio/mpeg"></audio>
@@ -19,7 +19,30 @@
             <audio id="redsound" src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" type="audio/mpeg"></audio>
         </div>
 
-        <div id="break"></div>
+        <div id="options">
+            <div id="title">
+                <p>freeCodeCamp</p>
+                <p>"Simon" Game</p>
+            </div>
+             
+            <div id="buttonRow">
+                <div id="counter">10</div>
+                <div id="start"></div>
+                <div id="strict"></div>
+            </div>
+            
+            <div id="buttonLabels">
+                <p id="countLabel" class="label">Count</p>
+                <p id="startLabel" class="label">Start</p>
+                <p id="strictLabel" class="label">Strict</p>
+            </div>
+            
+            <div id="powerDiv" class="row">
+                <p id="off" class="power">OFF</p>
+                <div id="power" class="power"></div>
+                <p id="on" class="power">ON</p>
+            </div>
+        </div>
 
         <div id="yellow" class="box">
             <audio id="yellowsound" src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" type="audio/mpeg"></audio>
@@ -29,8 +52,6 @@
             <audio id="bluesound" src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" type="audio/mpeg"></audio>
         </div>
     </div>
-    
-    <button id="start" type="submit">Go!</button>
     
     <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="scripts.js"></script>

@@ -9,6 +9,13 @@ var waiting = false;
 var clicks = [];
 var strictMode = false;
 
+/**
+* Toggles between strict mode and 'easy' mode
+**/
+$("#strict").on("click", function() {
+    strictMode = strictMode ? false : true;
+});
+
 var colors = {
     "green": {
         "normal": "#008000",
