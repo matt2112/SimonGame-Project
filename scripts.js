@@ -1,6 +1,6 @@
 "use strict";
 
-var sequence = ["red", "green", "blue", "yellow", "blue", "green"];
+var sequence = [];
 var counter = 0;
 var level = 0;
 var timer;
@@ -19,15 +19,29 @@ $("#power").on("click", function () {
         $("#offPos").show();
         $("#onPos").hide();
         strictMode = false;
+        $("#level").html("");
         $("#led").css("backgroundColor", "#262626");
         running = false;
         waiting = false;
     } else {
+        $("#level").html("- -");
         on = true;
         $("#offPos").hide();
         $("#onPos").show();
     }
 });
+
+
+/**
+ * Generates random sequence of colours
+ */
+var newSequence = function() {
+    sequence = [];
+    var choices = ["green", "red", "yellow", "blue"];
+    for (var i = 0; i < 3; i++) {
+        sequence.push(choices[Math.floor(Math.random() * 4)]);
+    }
+}
 
 /**
  * Toggles between strict mode and 'easy' mode
@@ -69,6 +83,7 @@ var colors = {
 $("#start").on("click", function () {
 
     if (!running && on) {
+        newSequence();
         counter = 0;
         level = 0;
         running = true;
@@ -85,6 +100,8 @@ var startTimer = function () {
 
     if (level < sequence.length) {
         level += 1;
+        var levelDisplay = (level < 10 ? '0' : '') + level;
+        $("#level").html(levelDisplay);
     } else {
         running = false;
         alert("You win!");
