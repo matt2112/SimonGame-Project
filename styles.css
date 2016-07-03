@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Lora:400,700);
+
 html {
     background: linear-gradient(grey, white);
     height: 100%;
@@ -6,7 +8,7 @@ html {
 body {
     padding: 0px;
     margin: 0px;
-    
+    font-family: 'Lora', serif;
 }
 
 p {
@@ -53,7 +55,7 @@ p {
 }
 
 #blue {
-    background-color: #000066;
+    background-color: #003d99;
     border-bottom-right-radius: 300px;
     border-left: 20px solid #262626;
     border-top: 20px solid #262626;
@@ -62,7 +64,7 @@ p {
 #options {
     height: 250px;
     width: 250px;
-    background-color: #ffe6b3;
+    background-color: #f2f2f2;
     border-radius: 50%;
     position: absolute;
     z-index: 100;
@@ -81,6 +83,10 @@ p {
     position: relative;
     top: 20px;
     line-height: 20px;
+}
+
+sup {
+    font-size: 10px;
 }
 
 #buttonRow {
@@ -102,7 +108,7 @@ p {
     width: 40px;
     border-radius: 100%;
     border: 2px solid black;
-    box-shadow: 0px 1px 1px 3px #262626;
+    box-shadow: 0px 1px 1px 2px #262626;
     cursor: pointer;
     position: relative;
     margin: 0 auto;
@@ -112,7 +118,7 @@ p {
 
 #start:active {
     top: 12px;
-    box-shadow: 0px 0px 0px 3px #262626;
+    box-shadow: 0px 0px 0px 2px #262626;
 }
 
 #strict {
@@ -122,7 +128,7 @@ p {
     width: 30px;
     border-radius: 100%;
     border: 2px solid black;
-    box-shadow: 0px 1px 1px 3px #262626;
+    box-shadow: 0px 1px 1px 2px #262626;
     cursor: pointer;
     position: relative;
     top: -25px;
@@ -131,7 +137,18 @@ p {
 
 #strict:active {
     top: -23px;
-    box-shadow: 0px 0px 0px 3px #262626;
+    box-shadow: 0px 0px 0px 2px #262626;
+}
+
+#led {
+    width: 8px;
+    height: 8px;
+    float: right;
+    position: relative;
+    right: 48px;
+    background-color: #262626;
+    border: 1px solid #262626;
+    border-radius: 100%;
 }
 
 #buttonLabels {
@@ -157,11 +174,11 @@ p {
 }
 
 #powerDiv {
-    width: 138px;
+    width: 122px;
     height: 30px;
     margin: 0 auto;
     position: relative;
-    top: -20px;
+    top: -15px;
 }
 
 .power {
@@ -171,13 +188,16 @@ p {
 
 #off {
     width: 30px;
-    margin: 2px;
+    margin: 3px;
     text-align: right;
 }
 
 #power {
-    height: 25px;
+    width: 52px;
+    height: 26px;
     background-color: #262626;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
 #on {
@@ -186,3 +206,18 @@ p {
     text-align: left;
 }
 
+.switch {
+    background-color: #4d94ff;
+    width: 20px;
+    height: 20px;
+    margin: 3px;
+}
+
+#offPos {
+    float: left;
+}
+
+#onPos {
+    float: right;
+    display: none;
+}

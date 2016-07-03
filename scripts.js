@@ -8,12 +8,40 @@ var running = false;
 var waiting = false;
 var clicks = [];
 var strictMode = false;
+var on = false;
 
 /**
-* Toggles between strict mode and 'easy' mode
-**/
-$("#strict").on("click", function() {
-    strictMode = strictMode ? false : true;
+ * Toggles power on/off
+ **/
+$("#power").on("click", function () {
+    if (on) {
+        on = false;
+        $("#offPos").show();
+        $("#onPos").hide();
+        strictMode = false;
+        $("#led").css("backgroundColor", "#262626");
+        running = false;
+        waiting = false;
+    } else {
+        on = true;
+        $("#offPos").hide();
+        $("#onPos").show();
+    }
+});
+
+/**
+ * Toggles between strict mode and 'easy' mode
+ **/
+$("#strict").on("click", function () {
+    if (on) {
+        if (strictMode) {
+            strictMode = false;
+            $("#led").css("backgroundColor", "#262626");
+        } else {
+            strictMode = true;
+            $("#led").css("backgroundColor", "red");
+        }
+    }
 });
 
 var colors = {
@@ -30,30 +58,30 @@ var colors = {
         "change": "#ffff00"
     },
     "blue": {
-        "normal": "#000066",
-        "change": "#1a1aff"
+        "normal": "#003d99",
+        "change": "#3385ff"
     }
 };
 
 /**
-* Begins game when Go button clicked.
-**/
-$("#start").on("click", function() {
-    
-    if (!running) {
+ * Begins game when Go button clicked.
+ **/
+$("#start").on("click", function () {
+
+    if (!running && on) {
         counter = 0;
         level = 0;
         running = true;
         startTimer();
     }
-    
+
 });
 
 /**
-* Starts traversing sequence assuming level does not exceed
-* length of sequence.
-**/
-var startTimer = function() {
+ * Starts traversing sequence assuming level does not exceed
+ * length of sequence.
+ **/
+var startTimer = function () {
 
     if (level < sequence.length) {
         level += 1;
@@ -61,23 +89,23 @@ var startTimer = function() {
         running = false;
         alert("You win!");
     }
-    
+
     if (running) {
         timer = window.setInterval(traverseSequence, 1000);
     }
 }
 
 /**
-* Counts through one more element sequence,
-* changing colours and playing sounds as it goes.
-**/
-var traverseSequence = function() {
+ * Counts through one more element sequence,
+ * changing colours and playing sounds as it goes.
+ **/
+var traverseSequence = function () {
     if (counter > 0) {
         var oldColor = colors[sequence[counter - 1]]["normal"];
         $("#" + sequence[counter - 1]).css("background-color", oldColor);
     }
-    
-    if (counter < level) {
+
+    if ((counter < level) && on) {
         var newColor = colors[sequence[counter]]["change"];
         $("#" + sequence[counter]).css("background-color", newColor);
         $("#" + sequence[counter] + "sound")[0].play();
@@ -85,27 +113,27 @@ var traverseSequence = function() {
     } else {
         window.clearInterval(timer);
         waiting = true;
-    }   
+    }
 }
 
 /**
-* Once computer has finished playing level, awaits user input
-* and verifies answer is correct.
-**/
+ * Once computer has finished playing level, awaits user input
+ * and verifies answer is correct.
+ **/
 $(".box")
-    .mousedown(function() {
-        if (waiting) {
+    .mousedown(function () {
+        if (waiting && on) {
             $("#" + this.id + "sound")[0].play();
             clicks.push(this.id);
             var newColor = colors[this.id]["change"];
             $("#" + this.id).css("background-color", newColor);
         }
     })
-    .mouseup(function() {
-    
+    .mouseup(function () {
+
         var oldColor = colors[this.id]["normal"];
         $("#" + this.id).css("background-color", oldColor);
-    
+
         if (waiting) {
             if (clicks.slice(-1)[0] !== sequence[clicks.length - 1]) {
                 if (strictMode) {
@@ -117,7 +145,7 @@ $(".box")
                     clicks = [];
                 }
             }
-        
+
             if (clicks.length === level) {
                 clicks = [];
                 waiting = false;
