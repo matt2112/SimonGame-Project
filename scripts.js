@@ -10,6 +10,7 @@ var clicks = [];
 var strictMode = false;
 var on = false;
 var numLevels = 20;
+var speed = 900;
 
 /**
  * Toggles power on/off
@@ -25,7 +26,7 @@ $("#power").on("click", function () {
         running = false;
         waiting = false;
     } else {
-        $("#level").html("- -");
+        $("#level").html("--");
         on = true;
         $("#offPos").hide();
         $("#onPos").show();
@@ -49,6 +50,20 @@ var newSequence = function () {
     for (var i = 0; i < numLevels; i++) {
         sequence.push(choices[Math.floor(Math.random() * 4)]);
     }
+
+    var ticks = 0;
+    var thinking = window.setInterval(function () {
+        if (ticks % 2 === 0) {
+            $("#level").html("--");
+        } else {
+            $("#level").html("");
+        }
+        ticks += 1;
+        if (ticks === 5) {
+            window.clearInterval(thinking);
+            startTimer();
+        }
+    }, 400);
 }
 
 /**
@@ -90,12 +105,15 @@ var colors = {
  **/
 $("#start").on("click", function () {
 
-    if (!running && on) {
-        newSequence();
+    if (on) {
+        $("#green").css("background-color", colors["green"]["normal"]);
+        $("#red").css("background-color", colors["red"]["normal"]);
+        $("#blue").css("background-color", colors["blue"]["normal"]);
+        $("#yellow").css("background-color", colors["yellow"]["normal"]);
         counter = 0;
         level = 0;
         running = true;
-        startTimer();
+        newSequence();
     }
 
 });
@@ -117,16 +135,14 @@ var startTimer = function () {
 
     if (running) {
 
-        var speed;
-
         if (level < 5) {
-            speed = 1000;
+            speed = 900;
         } else if (level < 9) {
-            speed = 800;
+            speed = 700;
         } else if (level < 13) {
-            speed = 600;
+            speed = 500;
         } else {
-            speed = 400;
+            speed = 300;
         }
 
         timer = window.setInterval(traverseSequence, speed);
@@ -143,15 +159,22 @@ var traverseSequence = function () {
         $("#" + sequence[counter - 1]).css("background-color", oldColor);
     }
 
-    if ((counter < level) && on) {
-        var newColor = colors[sequence[counter]]["change"];
-        $("#" + sequence[counter]).css("background-color", newColor);
-        $("#" + sequence[counter] + "sound")[0].play();
-        counter += 1;
-    } else {
+    var slightDelay = window.setInterval(function () {
         window.clearInterval(timer);
-        waiting = true;
-    }
+        window.clearInterval(slightDelay);
+        if ((counter < level) && on) {
+            var newColor = colors[sequence[counter]]["change"];
+            $("#" + sequence[counter]).css("background-color", newColor);
+            $("#" + sequence[counter] + "sound")[0].load();
+            $("#" + sequence[counter] + "sound")[0].play();
+            counter += 1;
+            timer = window.setInterval(traverseSequence, speed);
+        } else {
+            waiting = true;
+        }
+        window.clearInterval(slightDelay);
+    }, 100);
+
 }
 
 /**
@@ -161,6 +184,7 @@ var traverseSequence = function () {
 $(".box")
     .mousedown(function () {
         if (waiting && on) {
+            $("#" + this.id + "sound")[0].load();
             $("#" + this.id + "sound")[0].play();
             clicks.push(this.id);
             var newColor = colors[this.id]["change"];
@@ -211,8 +235,8 @@ var handleMistake = function () {
                 newSequence();
             } else {
                 level -= 1;
+                startTimer();
             }
-            startTimer();
         }
     }, 400);
 }
@@ -240,36 +264,36 @@ var handleWin = function () {
     var flash = 0;
     var flashes = window.setInterval(function () {
         switch (flash) {
-            case 0:
-            case 4:
-            case 8:
-                $("#yellow").css("background-color", colors["yellow"]["normal"]);
-                $("#green").css("background-color", colors["green"]["change"]);
-                break;
-            case 1:
-            case 5:
-            case 9:
-                $("#green").css("background-color", colors["green"]["normal"]);
-                $("#red").css("background-color", colors["red"]["change"]);
-                break;
-            case 2:
-            case 6:
-            case 10:
-                $("#red").css("background-color", colors["red"]["normal"]);
-                $("#blue").css("background-color", colors["blue"]["change"]);
-                break;
-            case 3:
-            case 7:
-            case 11:
-                $("#blue").css("background-color", colors["blue"]["normal"]);
-                $("#yellow").css("background-color", colors["yellow"]["change"]);
-                break;
-            case 12:
-                $("#yellow").css("background-color", colors["yellow"]["normal"]);
-                window.clearInterval(flashes);
-                break;
-            default:
-                alert("error!");
+        case 0:
+        case 4:
+        case 8:
+            $("#yellow").css("background-color", colors["yellow"]["normal"]);
+            $("#green").css("background-color", colors["green"]["change"]);
+            break;
+        case 1:
+        case 5:
+        case 9:
+            $("#green").css("background-color", colors["green"]["normal"]);
+            $("#red").css("background-color", colors["red"]["change"]);
+            break;
+        case 2:
+        case 6:
+        case 10:
+            $("#red").css("background-color", colors["red"]["normal"]);
+            $("#blue").css("background-color", colors["blue"]["change"]);
+            break;
+        case 3:
+        case 7:
+        case 11:
+            $("#blue").css("background-color", colors["blue"]["normal"]);
+            $("#yellow").css("background-color", colors["yellow"]["change"]);
+            break;
+        case 12:
+            $("#yellow").css("background-color", colors["yellow"]["normal"]);
+            window.clearInterval(flashes);
+            break;
+        default:
+            alert("error!");
         }
         flash += 1;
     }, 200);

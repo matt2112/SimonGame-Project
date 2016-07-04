@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Lora:400,700);
 html {
-    background: linear-gradient(grey, white);
+    background: linear-gradient(#ffc64d, #fff7e6);
+    background-attachment: fixed;
     height: 100%;
 }
 
@@ -8,6 +9,7 @@ body {
     padding: 0px;
     margin: 0px;
     font-family: 'Lora', serif;
+    height: 100%;
 }
 
 p {
@@ -109,7 +111,7 @@ sup {
     line-height: 45px;
     font-size: 30px;
     font-weight: bold;
-    letter-spacing: 3px;
+    letter-spacing: 5px;
 }
 
 #start {
@@ -239,4 +241,10 @@ h3 {
 
 #levels {
     width: 30px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 10px;
 }
