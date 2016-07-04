@@ -17,6 +17,11 @@ var speed = 900;
  **/
 $("#power").on("click", function () {
     if (on) {
+        window.clearInterval(timer);
+        $("#green").css("background-color", colors["green"]["normal"]);
+        $("#red").css("background-color", colors["red"]["normal"]);
+        $("#blue").css("background-color", colors["blue"]["normal"]);
+        $("#yellow").css("background-color", colors["yellow"]["normal"]);
         on = false;
         $("#offPos").show();
         $("#onPos").hide();
