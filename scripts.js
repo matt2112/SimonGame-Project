@@ -9,6 +9,7 @@ var waiting = false;
 var clicks = [];
 var strictMode = false;
 var on = false;
+var numLevels = 20;
 
 /**
  * Toggles power on/off
@@ -31,14 +32,21 @@ $("#power").on("click", function () {
     }
 });
 
+/**
+ * Sets number of levels as desired by user.
+ **/
+$("#numLevels").on("submit", function (e) {
+    e.preventDefault();
+    numLevels = parseInt(this.elements[0].value);
+});
 
 /**
- * Generates random sequence of colours
+ * Generates random sequence of colours.
  */
-var newSequence = function() {
+var newSequence = function () {
     sequence = [];
     var choices = ["green", "red", "yellow", "blue"];
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < numLevels; i++) {
         sequence.push(choices[Math.floor(Math.random() * 4)]);
     }
 }
@@ -94,7 +102,7 @@ $("#start").on("click", function () {
 
 /**
  * Starts traversing sequence assuming level does not exceed
- * length of sequence.
+ * length of sequence. Increases game tempo at 5th, 9th and 13th steps.
  **/
 var startTimer = function () {
 
@@ -104,11 +112,24 @@ var startTimer = function () {
         $("#level").html(levelDisplay);
     } else {
         running = false;
-        alert("You win!");
+        handleWin();
     }
 
     if (running) {
-        timer = window.setInterval(traverseSequence, 1000);
+
+        var speed;
+
+        if (level < 5) {
+            speed = 1000;
+        } else if (level < 9) {
+            speed = 800;
+        } else if (level < 13) {
+            speed = 600;
+        } else {
+            speed = 400;
+        }
+
+        timer = window.setInterval(traverseSequence, speed);
     }
 }
 
@@ -153,14 +174,7 @@ $(".box")
 
         if (waiting) {
             if (clicks.slice(-1)[0] !== sequence[clicks.length - 1]) {
-                if (strictMode) {
-                    waiting = false;
-                    running = false;
-                    alert("you lose!");
-                } else {
-                    alert("try again!");
-                    clicks = [];
-                }
+                handleMistake();
             }
 
             if (clicks.length === level) {
@@ -171,3 +185,92 @@ $(".box")
             }
         }
     });
+
+/**
+ * Deals with any mistakes made by the user.
+ **/
+var handleMistake = function () {
+    clicks = [];
+    waiting = false;
+    counter = 0;
+    var ticks = 0;
+    var exclamation = window.setInterval(function () {
+        if (ticks === 0) {
+            $("#mistake")[0].play();
+        }
+        if (ticks % 2 === 0) {
+            $("#level").html("!!");
+        } else {
+            $("#level").html("");
+        }
+        ticks += 1;
+        if (ticks === 5) {
+            window.clearInterval(exclamation);
+            if (strictMode) {
+                level = 0;
+                newSequence();
+            } else {
+                level -= 1;
+            }
+            startTimer();
+        }
+    }, 400);
+}
+
+/**
+ * Congratulates user if he/she wins and plays victory sound and animation.
+ **/
+var handleWin = function () {
+    var ticks = 0;
+    var exclamation = window.setInterval(function () {
+        if (ticks === 0) {
+            $("#win")[0].play();
+        }
+        if (ticks % 2 === 0) {
+            $("#level").html("**");
+        } else {
+            $("#level").html("");
+        }
+        ticks += 1;
+        if (ticks === 5) {
+            window.clearInterval(exclamation);
+        }
+    }, 400);
+
+    var flash = 0;
+    var flashes = window.setInterval(function () {
+        switch (flash) {
+            case 0:
+            case 4:
+            case 8:
+                $("#yellow").css("background-color", colors["yellow"]["normal"]);
+                $("#green").css("background-color", colors["green"]["change"]);
+                break;
+            case 1:
+            case 5:
+            case 9:
+                $("#green").css("background-color", colors["green"]["normal"]);
+                $("#red").css("background-color", colors["red"]["change"]);
+                break;
+            case 2:
+            case 6:
+            case 10:
+                $("#red").css("background-color", colors["red"]["normal"]);
+                $("#blue").css("background-color", colors["blue"]["change"]);
+                break;
+            case 3:
+            case 7:
+            case 11:
+                $("#blue").css("background-color", colors["blue"]["normal"]);
+                $("#yellow").css("background-color", colors["yellow"]["change"]);
+                break;
+            case 12:
+                $("#yellow").css("background-color", colors["yellow"]["normal"]);
+                window.clearInterval(flashes);
+                break;
+            default:
+                alert("error!");
+        }
+        flash += 1;
+    }, 200);
+}

@@ -9,12 +9,12 @@
 </head>
 
 <body>
-    
+
     <div id="container">
         <div id="green" class="box">
             <audio id="greensound" src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" type="audio/mpeg"></audio>
         </div>
-        
+
         <div id="red" class="box">
             <audio id="redsound" src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" type="audio/mpeg"></audio>
         </div>
@@ -24,7 +24,7 @@
                 <p>freeCodeCamp</p>
                 <p>Simon<sup>&reg</sup> Game</p>
             </div>
-             
+
             <div id="buttonRow">
                 <div id="led"></div>
                 <div id="counter">
@@ -33,13 +33,13 @@
                 <div id="start"></div>
                 <div id="strict"></div>
             </div>
-            
+
             <div id="buttonLabels">
                 <p id="countLabel" class="label">COUNT</p>
                 <p id="startLabel" class="label">START</p>
                 <p id="strictLabel" class="label">STRICT</p>
             </div>
-            
+
             <div id="powerDiv" class="row">
                 <p id="off" class="power">OFF</p>
                 <div id="power" class="power">
@@ -53,12 +53,28 @@
         <div id="yellow" class="box">
             <audio id="yellowsound" src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" type="audio/mpeg"></audio>
         </div>
-        
+
         <div id="blue" class="box">
             <audio id="bluesound" src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" type="audio/mpeg"></audio>
         </div>
     </div>
-    
+
+    <h3>Info</h3>
+    <ul>
+        <li>When game is switched on, press START at any time to generate a new sequence.</li>
+        <li>Click the correct colour 20 times in a row to win! Or choose an alternative number (1-99) using the box below if you prefer:
+            <form id="numLevels">
+                <input id="levels" type="number" placeholder="20" min="1" max="99">
+                <button type="submit">Change</button>
+            </form>
+        </li>
+        <li>Activate STRICT mode for a greater challenge i.e. no retries.</li>
+        <li>Game tempo increments at 5th, 9th and 13th steps.</li>
+    </ul>
+
+    <audio id="mistake" src="mistake.mp3" type="audio/mpeg"></audio>
+    <audio id="win" src="win.mp3" type="audio/mpeg"></audio>
+
     <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="scripts.js"></script>
 </body>
