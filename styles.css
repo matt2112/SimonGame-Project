@@ -2,34 +2,67 @@
 html {
     background: linear-gradient(#ffc64d, #fff7e6);
     background-attachment: fixed;
-    height: 100%;
 }
 
 body {
-    padding: 0px;
-    margin: 0px;
     font-family: 'Lora', serif;
-    height: 100%;
+    color: #262626;
 }
 
 p {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
 }
 
 #container {
-    width: 630px;
-    height: 630px;
+    width: 95vw;
+    max-width: 630px;
+    height: 95vw;
+    max-height: 630px;
     margin: 50px auto;
+    background-color: #262626;
+    /*    z-index: 0;*/
+    border-radius: 50%;
     position: relative;
-    border: 30px solid #262626;
-    border-radius: 335px;
-    box-shadow: 0px 0px 4px 4px #262626;
+}
+
+.centred-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+#inner {
+    width: 90vw;
+    max-width: 600px;
+    height: 90vw;
+    max-height: 600px;
+}
+
+#optionsOuter {
+    width: 50vw;
+    max-width: 300px;
+    height: 50vw;
+    max-height: 300px;
+    background-color: #262626;
+}
+
+#options {
+    width: 40vw;
+    max-width: 250px;
+    height: 40vw;
+    max-height: 250px;
+    background-color: #fff;
+    text-align: center;
 }
 
 .box {
-    height: 300px;
-    width: 300px;
+    width: 45vw;
+    max-width: 300px;
+    height: 45vw;
+    box-sizing: border-box;
+    max-height: 300px;
     float: left;
     cursor: pointer;
 }
@@ -62,32 +95,19 @@ p {
     border-top: 15px solid #262626;
 }
 
-#options {
-    height: 250px;
-    width: 250px;
-    background-color: #f2f2f2;
-    border-radius: 50%;
-    position: absolute;
-    z-index: 100;
-    top: 160px;
-    left: 160px;
-    border: 30px solid #262626;
-    text-align: center;
-}
-
+/*
 #title {
-    width: 200px;
-    margin: 15px auto -15px auto;
-    font-weight: bold;
-    font-size: 20px;
-    color: #262626;
-    position: relative;
-    top: 20px;
-    line-height: 20px;
+    height: 50vw;
+    line-height: 100%;
+    font-size: 100%;
+}
+*/
+h1 {
+    font-size: 30px;
 }
 
 sup {
-    font-size: 10px;
+    font-size: 0.5em;
 }
 
 #buttonRow {
