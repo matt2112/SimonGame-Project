@@ -2,6 +2,8 @@
 html {
     background: linear-gradient(#ffc64d, #fff7e6);
     background-attachment: fixed;
+    min-height: 100%;
+    position: relative;
 }
 
 body {
@@ -15,12 +17,9 @@ p {
 
 #container {
     width: 95vw;
-    max-width: 630px;
     height: 95vw;
-    max-height: 630px;
-    margin: 50px auto;
+    margin: 20px auto 0 auto;
     background-color: #262626;
-    /*    z-index: 0;*/
     border-radius: 50%;
     position: relative;
 }
@@ -35,83 +34,68 @@ p {
 
 #inner {
     width: 90vw;
-    max-width: 600px;
     height: 90vw;
-    max-height: 600px;
 }
 
-#optionsOuter {
-    width: 50vw;
-    max-width: 300px;
-    height: 50vw;
-    max-height: 300px;
+#options-outer {
+    width: 45vw;
+    height: 45vw;
     background-color: #262626;
 }
 
 #options {
     width: 40vw;
-    max-width: 250px;
     height: 40vw;
-    max-height: 250px;
     background-color: #fff;
     text-align: center;
 }
 
 .box {
     width: 45vw;
-    max-width: 300px;
     height: 45vw;
     box-sizing: border-box;
-    max-height: 300px;
     float: left;
     cursor: pointer;
 }
 
 #green {
     background-color: #008000;
-    border-top-left-radius: 300px;
-    border-right: 15px solid #262626;
-    border-bottom: 15px solid #262626;
+    border-top-left-radius: 340px;
+    border-right: 1.25vw solid #262626;
+    border-bottom: 1.25vw solid #262626;
 }
 
 #red {
     background-color: #991f00;
-    border-top-right-radius: 300px;
-    border-left: 15px solid #262626;
-    border-bottom: 15px solid #262626;
+    border-top-right-radius: 340px;
+    border-left: 1.25vw solid #262626;
+    border-bottom: 1.25vw solid #262626;
 }
 
 #yellow {
     background-color: #cccc00;
-    border-bottom-left-radius: 300px;
-    border-right: 15px solid #262626;
-    border-top: 15px solid #262626;
+    border-bottom-left-radius: 340px;
+    border-right: 1.25vw solid #262626;
+    border-top: 1.25vw solid #262626;
 }
 
 #blue {
     background-color: #003d99;
-    border-bottom-right-radius: 300px;
-    border-left: 15px solid #262626;
-    border-top: 15px solid #262626;
+    border-bottom-right-radius: 340px;
+    border-left: 1.25vw solid #262626;
+    border-top: 1.25vw solid #262626;
 }
 
-/*
 #title {
-    height: 50vw;
-    line-height: 100%;
-    font-size: 100%;
-}
-*/
-h1 {
-    font-size: 30px;
+    font-size: 5vw;
 }
 
 sup {
-    font-size: 0.5em;
+    font-size: 3vw;
 }
 
 #buttonRow {
-    margin: 40px auto;
+/*    margin: 40px auto;*/
 }
 
 #counter {
@@ -263,8 +247,51 @@ h3 {
     width: 30px;
 }
 
+#instructions {
+    position: relative;
+    margin-bottom: 30px;
+}
+
 footer {
     text-align: center;
-    margin-top: 80px;
-    margin-bottom: 10px;
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+}
+
+@media screen and (min-width: 750px) {
+    
+    #container {
+        width: 710px;
+        height: 710px;
+    }
+    
+    #inner {
+        width: 674px;
+        height: 674px;
+    }
+    
+    .box {
+        width: 337px;
+        height: 337px;
+        border-width: 9px !important;
+    }
+    
+    #options-outer {
+        width: 335px;
+        height: 335px;
+    }
+    
+    #options {
+        width: 298px;
+        height: 298px;
+    }
+    
+    #title {
+        font-size: 38px;
+    }
+    
+    sup {
+        font-size: 22px;
+    }
 }
