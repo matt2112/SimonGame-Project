@@ -58,7 +58,7 @@ var newSequence = function () {
 
     var ticks = 0;
     var thinking = window.setInterval(function () {
-        if (ticks % 2 === 0) {
+        if (ticks % 2 === 0 && on) {
             $("#level").html("--");
         } else {
             $("#level").html("");
@@ -106,7 +106,7 @@ var colors = {
 };
 
 /**
- * Begins game when Go button clicked.
+ * Begins game when Start button clicked.
  **/
 $("#start").on("click", function () {
 
@@ -129,29 +129,32 @@ $("#start").on("click", function () {
  **/
 var startTimer = function () {
 
-    if (level < sequence.length) {
-        level += 1;
-        var levelDisplay = (level < 10 ? '0' : '') + level;
-        $("#level").html(levelDisplay);
-    } else {
-        running = false;
-        handleWin();
-    }
-
-    if (running) {
-
-        if (level < 5) {
-            speed = 900;
-        } else if (level < 9) {
-            speed = 700;
-        } else if (level < 13) {
-            speed = 500;
+    if (on) {
+        if (level < sequence.length) {
+            level += 1;
+            var levelDisplay = (level < 10 ? '0' : '') + level;
+            $("#level").html(levelDisplay);
         } else {
-            speed = 300;
+            running = false;
+            handleWin();
         }
 
-        timer = window.setInterval(traverseSequence, speed);
+        if (running) {
+
+            if (level < 5) {
+                speed = 900;
+            } else if (level < 9) {
+                speed = 700;
+            } else if (level < 13) {
+                speed = 500;
+            } else {
+                speed = 300;
+            }
+
+            timer = window.setInterval(traverseSequence, speed);
+        }
     }
+
 }
 
 /**

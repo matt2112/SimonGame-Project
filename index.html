@@ -43,23 +43,21 @@
                 <div id="strict"></div>
             </div>
 
-            
-                    <div id="buttonLabels">
-                        <p id="countLabel" class="label">COUNT</p>
-                        <p id="startLabel" class="label">START</p>
-                        <p id="strictLabel" class="label">STRICT</p>
-                    </div>
 
-<!--
-                    <div id="powerDiv" class="row">
-                        <p id="off" class="power">OFF</p>
-                        <div id="power" class="power">
-                            <div id="offPos" class="switch"></div>
-                            <div id="onPos" class="switch"></div>
-                        </div>
-                        <p id="on" class="power">ON</p>
--->
+            <div id="buttonLabels">
+                <p id="countLabel" class="label">COUNT</p>
+                <p id="startLabel" class="label">START</p>
+                <p id="strictLabel" class="label">STRICT</p>
+            </div>
 
+            <div id="powerDiv" class="row">
+                <p id="off" class="label powerLabel">OFF</p>
+                <div id="power">
+                    <div id="offPos" class="switch"></div>
+                    <div id="onPos" class="switch"></div>
+                </div>
+                <p id="on" class="label powerLabel">ON</p>
+            </div>
 
         </div>
     </div>
@@ -69,7 +67,7 @@
         <h3>Info</h3>
         <ul>
             <li>When game is switched on, press START at any time to generate a new sequence.</li>
-            <li>Click the correct colour 20 times in a row to win! Or choose an alternative number (1-99) using this box if you prefer: 
+            <li>Click the correct colour 20 times in a row to win! Or choose an alternative number (1-99) using this box if you prefer:
                 <form id="numLevels">
                     <input id="levels" type="number" placeholder="20" min="1" max="99">
                     <button type="submit">Change</button>
@@ -81,7 +79,7 @@
     </div>
 
     <footer>
-        Coded by Matt Lewis
+        Coded by <a href="https://github.com/matt2112" target="_blank">Matt Lewis</a>
     </footer>
 
     <audio id="mistake" src="mistake.mp3" type="audio/mpeg"></audio>
