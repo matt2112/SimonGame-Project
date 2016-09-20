@@ -13,38 +13,37 @@
 <body>
 
     <div id="container">
-        <div id="inner" class="centred-circle">
-            <div id="green" class="box">
-                <audio id="greensound" src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" type="audio/mpeg"></audio>
+        <div id="green" class="box">
+            <audio id="greensound" src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" type="audio/mpeg"></audio>
+        </div>
+
+        <div id="red" class="box">
+            <audio id="redsound" src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" type="audio/mpeg"></audio>
+        </div>
+
+        <div id="yellow" class="box">
+            <audio id="yellowsound" src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" type="audio/mpeg"></audio>
+        </div>
+
+        <div id="blue" class="box">
+            <audio id="bluesound" src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" type="audio/mpeg"></audio>
+        </div>
+
+
+        <div id="options">
+
+            <h1 id="title">Simon<sup>&reg</sup></h1>
+
+            <div id="buttonRow">
+                <div id="led"></div>
+                <div id="counter">
+                    <div id="level"></div>
+                </div>
+                <div id="start"></div>
+                <div id="strict"></div>
             </div>
 
-            <div id="red" class="box">
-                <audio id="redsound" src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" type="audio/mpeg"></audio>
-            </div>
-
-            <div id="yellow" class="box">
-                <audio id="yellowsound" src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" type="audio/mpeg"></audio>
-            </div>
-
-            <div id="blue" class="box">
-                <audio id="bluesound" src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" type="audio/mpeg"></audio>
-            </div>
-
-            <div id="options-outer" class="centred-circle">
-                <div id="options" class="centred-circle">
-
-                    <h1 id="title">Simon<sup>&reg</sup></h1>
-
-                    <div id="buttonRow">
-                        <div id="led"></div>
-                        <div id="counter">
-                            <div id="level"></div>
-                        </div>
-                        <div id="start"></div>
-                        <div id="strict"></div>
-                    </div>
-
-                    <!--
+            <!--
                     <div id="buttonLabels">
                         <p id="countLabel" class="label">COUNT</p>
                         <p id="startLabel" class="label">START</p>
@@ -60,16 +59,15 @@
                         <p id="on" class="power">ON</p>
 -->
 
-                </div>
-            </div>
         </div>
     </div>
+
 
     <div id="instructions">
         <h3>Info</h3>
         <ul>
             <li>When game is switched on, press START at any time to generate a new sequence.</li>
-            <li>Click the correct colour 20 times in a row to win! Or choose an alternative number (1-99) using the box below if you prefer:
+            <li>Click the correct colour 20 times in a row to win! Or choose an alternative number (1-99) using this box if you prefer:
                 <form id="numLevels">
                     <input id="levels" type="number" placeholder="20" min="1" max="99">
                     <button type="submit">Change</button>

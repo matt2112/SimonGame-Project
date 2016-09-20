@@ -20,34 +20,24 @@ p {
     height: 95vw;
     margin: 20px auto 0 auto;
     background-color: #262626;
+    border: 2.5vw solid #262626;
+    box-sizing: border-box;
     border-radius: 50%;
     position: relative;
 }
 
-.centred-circle {
+#options {
+    width: 45vw;
+    height: 45vw;
+    background-color: #fff;
+    box-sizing: border-box;
+    border: 2.5vw solid #262626;
+    text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-}
-
-#inner {
-    width: 90vw;
-    height: 90vw;
-}
-
-#options-outer {
-    width: 45vw;
-    height: 45vw;
-    background-color: #262626;
-}
-
-#options {
-    width: 40vw;
-    height: 40vw;
-    background-color: #fff;
-    text-align: center;
 }
 
 .box {
@@ -95,7 +85,7 @@ sup {
 }
 
 #buttonRow {
-/*    margin: 40px auto;*/
+    /*    margin: 40px auto;*/
 }
 
 #counter {
@@ -249,7 +239,12 @@ h3 {
 
 #instructions {
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
+}
+
+#numLevels {
+    display: inline-block;
+    padding-left: 2px;
 }
 
 footer {
@@ -260,37 +255,24 @@ footer {
 }
 
 @media screen and (min-width: 750px) {
-    
     #container {
-        width: 710px;
-        height: 710px;
+        width: 712px;
+        height: 712px;
+        border-width: 18px;
     }
-    
-    #inner {
-        width: 674px;
-        height: 674px;
-    }
-    
     .box {
-        width: 337px;
-        height: 337px;
+        width: 338px;
+        height: 338px;
         border-width: 9px !important;
     }
-    
-    #options-outer {
-        width: 335px;
-        height: 335px;
-    }
-    
     #options {
-        width: 298px;
-        height: 298px;
+        width: 338px;
+        height: 338px;
+        border-width: 18px;
     }
-    
     #title {
         font-size: 38px;
     }
-    
     sup {
         font-size: 22px;
     }
