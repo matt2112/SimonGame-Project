@@ -153,25 +153,16 @@ sup {
 }
 
 #buttonLabels {
-    width: 210px;
-    height: 30px;
-    margin: 0 auto;
+    height: 4vmin;
     position: relative;
+    bottom: 3vmin;
+    display: inline-flex;
+    line-height: 3vmin;
 }
 
 .label {
-    position: relative;
-    top: -20px;
-    width: 70px;
-    float: left;
-}
-
-#startLabel {
-    left: 3px;
-}
-
-#strictLabel {
-    left: 3px;
+    font-size: 3vmin;
+    padding: 1vmin;
 }
 
 #powerDiv {
@@ -322,5 +313,11 @@ footer {
         background-color: #262626;
         border: 1px solid #262626;
         border-radius: 100%;
+    }
+    #buttonLabels {
+        width: 210px;
+        height: 30px;
+        margin: 0 auto;
+        position: relative;
     }
 }
