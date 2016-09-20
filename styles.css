@@ -36,28 +36,28 @@ p {
 
 #green {
     background-color: #008000;
-    border-top-left-radius: 340px;
+    border-top-left-radius: 100%;
     border-right: 1.25vmin solid #262626;
     border-bottom: 1.25vmin solid #262626;
 }
 
 #red {
     background-color: #991f00;
-    border-top-right-radius: 340px;
+    border-top-right-radius: 100%;
     border-left: 1.25vmin solid #262626;
     border-bottom: 1.25vmin solid #262626;
 }
 
 #yellow {
     background-color: #cccc00;
-    border-bottom-left-radius: 340px;
+    border-bottom-left-radius: 100%;
     border-right: 1.25vmin solid #262626;
     border-top: 1.25vmin solid #262626;
 }
 
 #blue {
     background-color: #003d99;
-    border-bottom-right-radius: 340px;
+    border-bottom-right-radius: 100%;
     border-left: 1.25vmin solid #262626;
     border-top: 1.25vmin solid #262626;
 }
