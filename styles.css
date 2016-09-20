@@ -84,20 +84,15 @@ sup {
     font-size: 3vmin;
 }
 
-#buttonRow {
-    /*    margin: 40px auto;*/
-}
-
 #counter {
-    margin-left: 20px;
-    height: 45px;
-    width: 60px;
+    height: 7vmin;
+    width: 9vmin;
+    position: relative;
+    left: 3vmin;
     background-color: #330000;
     border: 5px solid #262626;
     float: left;
     border-radius: 10px;
-    position: relative;
-    top: 5px;
 }
 
 #level {
@@ -110,16 +105,16 @@ sup {
 
 #start {
     background-color: red;
-    height: 40px;
-    width: 40px;
-    border-radius: 100%;
-    border: 2px solid black;
-    box-shadow: 0px 1px 1px 2px #262626;
+    height: 6vmin;
+    width: 6vmin;
+    border-radius: 50%;
+    border: 0.5vmin solid black;
+    box-shadow: 0 0.5vmin 0.5vmin 0 #262626;
     cursor: pointer;
     position: relative;
     margin: 0 auto;
-    top: 10px;
-    left: 5px;
+    top: 1vmin;
+    /*    left: 5px;*/
 }
 
 #start:active {
@@ -130,15 +125,15 @@ sup {
 #strict {
     float: right;
     background-color: yellow;
-    height: 30px;
-    width: 30px;
-    border-radius: 100%;
-    border: 2px solid black;
-    box-shadow: 0px 1px 1px 2px #262626;
+    height: 4vmin;
+    width: 4vmin;
+    border-radius: 50%;
+    border: 0.5vmin solid black;
+    box-shadow: 0 0.25vmin 0.25vmin 0 #262626;
     cursor: pointer;
     position: relative;
-    top: -25px;
-    margin-right: 35px;
+    bottom: 4vmin;
+    right: 7vmin;
 }
 
 #strict:active {
@@ -147,14 +142,14 @@ sup {
 }
 
 #led {
-    width: 8px;
-    height: 8px;
+    width: 1vmin;
+    height: 1vmin;
     float: right;
     position: relative;
-    right: 48px;
+    right: 9vmin;
     background-color: #262626;
     border: 1px solid #262626;
-    border-radius: 100%;
+    border-radius: 50%;
 }
 
 #buttonLabels {
@@ -254,8 +249,10 @@ footer {
     bottom: 10px;
 }
 
+
 /* Above 750px, elements are fixed width rather than scaling based on viewport size.
 */
+
 @media screen and (min-width: 750px) {
     #container {
         width: 712px;
@@ -289,5 +286,41 @@ footer {
         border-radius: 10px;
         position: relative;
         top: 5px;
+    }
+    #start {
+        background-color: red;
+        height: 40px;
+        width: 40px;
+        border-radius: 100%;
+        border: 2px solid black;
+        box-shadow: 0px 1px 1px 2px #262626;
+        cursor: pointer;
+        position: relative;
+        margin: 0 auto;
+        top: 10px;
+        left: 5px;
+    }
+    #strict {
+        float: right;
+        background-color: yellow;
+        height: 4vmin;
+        width: 4vmin;
+        border-radius: 50%;
+        border: 0.5vmin solid black;
+        box-shadow: 0px 1px 1px 2px #262626;
+        cursor: pointer;
+        position: relative;
+        bottom: 25px;
+        right: 35px;
+    }
+    #led {
+        width: 8px;
+        height: 8px;
+        float: right;
+        position: relative;
+        right: 48px;
+        background-color: #262626;
+        border: 1px solid #262626;
+        border-radius: 100%;
     }
 }
